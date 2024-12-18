@@ -21,7 +21,7 @@ def predict_hate_speech_category(text, tokenizer, model, threshold=0.5):
     preds_probs = tf.sigmoid(preds).numpy()
     preds_label = (preds_probs > threshold).astype(int)
     
-    categories = ['abusive', 'hs_individual', 'hs_group', 'hs_religion', 'hs_race', 'hs_physical', 'hs_gender', 'hs_other']
+    categories = ['abusive', 'hs_individual', 'hs_group', 'hs_religion', 'hs_race', 'hs_other']
     
     output = {}
     if categories:
@@ -147,7 +147,7 @@ def main():
                     category_model
                 )
                 
-                relevant_categories = ['hs_individual', 'hs_group', 'hs_religion', 'hs_race', 'hs_physical', 'hs_gender', 'hs_other']
+                relevant_categories = ['hs_individual', 'hs_group', 'hs_religion', 'hs_race', 'hs_other']
                 should_check_strength = any(categories[cat]['label'] == 1 for cat in relevant_categories)
 
                 strength = None
